@@ -1,31 +1,38 @@
 #include "libhsh.h"
 #include <unistd.h>
-
-int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
+/**
+ * main - main function
+ *
+ * Return: 0
+ */
+int main(void)
 {
-        char **command;
-        char *input;
-        pid_t pid;
-        int stat_loc;
+char **command;
+char *input;
+pid_t pid;
+int stat_loc;
 
-        while (1)
-        {
-                input = readline("$ ");
+while (1)
+{
 
-                command = command_input(input);
+input = readline("$ ");
 
-                pid = fork();
-                if(pid == 0)
-                {
-                        execvp(command[0], command);
-                }
-                else
-                {
-                        waitpid(pid, &stat_loc, WUNTRACED);
-                }
-                free(input);
-                free(command);
-        }
+command = command_input(input);
 
-        return (0);
+pid = fork();
+
+if (pid == 0)
+{
+execvp(command[0], command);
+}
+else
+{
+waitpid (pid, &stat_loc, WUNTRACED);
+}
+
+free(input);
+free(command);
+}
+
+return (0);
 }
