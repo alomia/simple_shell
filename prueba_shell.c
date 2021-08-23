@@ -15,23 +15,21 @@ char **command_input(char *);
 
 char **command_input(char *input)
 {
-  char **command = malloc(8 * sizeof (char *));
-  char *separator = " ";
-  char *parsed;
-  int index = 0;
+	char **command = malloc(8 * sizeof (char *));
+	char *separator = " ";
+	char *parsed;
+	int index = 0;
 
-  parsed = strtok(input, separator);
+	parsed = strtok(input, separator);
+	while (parsed != NULL)
+    	{
+		command[index] = parsed;
+		index++;
+		parsed = strtok(NULL, separator);
+	}
 
-  while (parsed != NULL)
-    {
-      command[index] = parsed;
-      index++;
-
-      parsed = strtok(NULL, separator);
-    }
-
-  command[index] = NULL;
-  return (command);
+	command[index] = NULL;
+	return (command);
 }
 
 char *readline(char *prompt)
