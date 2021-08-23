@@ -36,19 +36,6 @@ Example of executables:
 
 The following builtin commands are supported:
 
-.IT
-.B env
-- prints the environment variables
-
-.B exit
-- exits the program
-
-.B setenv
-- sets the environment
-
-.B unsetenv
-- removes elements from the environment
-
 Example of builtin command:
 
 
@@ -60,7 +47,6 @@ Please report any issues to the authors.
 
 Sebastian Rengifo <sebas.rengi@holmail.com>
 
-John Cottrell <johnpcottrell@gmail.com>
 
 .SH SEE ALSO
 sh
