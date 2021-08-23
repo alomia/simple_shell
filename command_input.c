@@ -2,21 +2,18 @@
 
 char **command_input(char *input)
 {
-        char **command = malloc(8 * sizeof (char *));
-        char *separator = " ";
-        char *parsed;
+        char **args = malloc(8 * sizeof (char *));
+        char *token = NULL;
         int index = 0;
 
-        parsed = strtok(input, separator);
-
-        while (parsed != NULL)
+        token = strtok(input, " ");
+        while (token != NULL)
         {
-                command[index] = parsed;
+                args[index] = token;
                 index++;
-
-                parsed = strtok(NULL, separator);
+                token = strtok(NULL, " ");
         }
-
-        command[index] = NULL;
-        return (command);
+        args[index] = NULL;
+        execvp(args[0], args);
+        return (args);
 }
