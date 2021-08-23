@@ -23,7 +23,10 @@ pid = fork();
 
 if (pid == 0)
 {
-execvp(command[0], command);
+if(execvp(command[0], command) == -1)
+{
+perror("error")
+}
 }
 else
 {
