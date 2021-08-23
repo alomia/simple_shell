@@ -1,0 +1,53 @@
+.TH hsh 1 "17/08/2021" "1.0" "hsh General Commands Manual"
+
+.SH NAME
+
+.B simple_shell - hsh
+- command line interpreter or shell
+
+
+.SH SYNOPSIS
+
+.B  ./hsh
+
+.SH DESCRIPTION
+
+simple_shell is a command line interpreter, or shell, in the tradition of the first Unix shell written by Ken Thompson. This shell is intentionally minimalistic.
+
+
+.SH OVERVIEW
+
+it is a text interface that reads commands from a terminal or simple files.
+
+
+.SH INVOCATION
+
+Compile simple_shell with the GNU Compiler Collection, preferably using gcc plus the below specified flags, as per this example (note the use of the * wildcard which enables all related .c files to be compiled concurrently):
+
+.SH EXECUTABLES
+.IP
+.a
+.\&
+.RS
+\&$ echo "Ejemplo"
+.a
+\&"Ejemplo"
+.a
+\&$
+
+.SH BUILTINS
+
+
+
+.SH BUGS
+No known bugs at this writing.
+Please report any issues to the authors.
+
+.SH AUTHOR
+
+Sebastian Rengifo <sebas.rengi@holmail.com>
+
+Alejandro Alomia Riascos <>
+
+.SH SEE ALSO
+sh
