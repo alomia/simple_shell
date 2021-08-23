@@ -13,10 +13,10 @@ char *readline(char *prompt)
 
         getline(&command, &size, stdin);
 
-        while (command[lenCommand] != NULL)
+        while (command[lenCommand] != '\0')
                 lenCommand++;
 
-        command[lenCommand - 1] = NULL;
+        command[lenCommand - 1] = '\0';
 
         return (command);
 }

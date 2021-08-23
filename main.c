@@ -3,7 +3,7 @@
 
 int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 {
-        int **command;
+        char **command;
         char *input;
         pid_t pid;
         int stat_loc;
