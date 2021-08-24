@@ -25,7 +25,7 @@ if (pid == 0)
 {
 if(execvp(command[0], command) == -1)
 {
-perror("error")
+perror("error");
 }
 }
 else
