@@ -1,5 +1,7 @@
 #include "libhsh.h"
 #include <unistd.h>
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "UnreachableCode"
 /**
  * main - main function
  *
@@ -7,35 +9,65 @@
  */
 int main(void)
 {
-char **command;
-char *input;
-pid_t pid;
-int stat_loc;
+        char **command;
+        char *input;
+        pid_t pid;
+        int stat_loc;
 
-while (1)
-{
+        while (1)
+        {
 
-input = readline("$ ");
+                input = readLine("$ ");
+                
+                command = commandInput(input);
 
-command = command_input(input);
+                if (!command[0])
+                {
+                        free(input);
+                        free(command);
+                        continue;
+                }
 
-pid = fork();
 
-if (pid == 0)
-{
-if(execvp(command[0], command) == -1)
-{
-perror("error");
-}
-}
-else
-{
-waitpid (pid, &stat_loc, WUNTRACED);
-}
+                if (strcmp(command[0], "cd") == 0)
+                {
+                        if (changeDir(command[1]) < 0)
+                        {
+                                perror(command[1]);
+                        }
+                        continue;
+                }
 
-free(input);
-free(command);
-}
+                if (strcmp(command[0], "exit") == 0)
+                {
+                        exit(-1);
+                }
 
-return (0);
+                pid = fork();
+
+                if (pid < 0)
+                {
+                        perror("Fork failed");
+                        exit(1);
+                }
+
+                if (pid == 0)
+                {
+                        if (execvp(command[0], command) < 0)
+                        {
+                                perror(command[0]);
+                                exit(1);
+                        }
+                }
+
+                else
+                {
+                        waitpid (pid, &stat_loc, WUNTRACED);
+                }
+
+                free(input);
+                free(command);
+        }
+
+        return (0);
 }

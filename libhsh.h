@@ -7,7 +7,8 @@
 #include <string.h>
 #include <sys/wait.h>
 
-char *readline(char *);
-char **command_input(char *);
+char *readLine(char *);
+char **commandInput(char *);
+int changeDir(char *);
 
 #endif
