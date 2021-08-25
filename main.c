@@ -1,7 +1,4 @@
 #include "libhsh.h"
-#include <unistd.h>
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "UnreachableCode"
 /**
  * main - main function
  *
@@ -20,6 +17,28 @@ int main(void)
                 input = readLine("$ ");
                 
                 command = commandInput(input);
+
+                if (!command[0])
+                {
+                        free(input);
+                        free(command);
+                        continue;
+                }
+
+
+                if (strcmp(command[0], "cd") == 0)
+                {
+                        if (changeDir(command[1]) < 0)
+                        {
+                                perror(command[1]);
+                        }
+                        continue;
+                }
+
+                if (strcmp(command[0], "exit") == 0)
+                {
+                        exit(-1);
+                }
 
                 if (!command[0])
                 {
