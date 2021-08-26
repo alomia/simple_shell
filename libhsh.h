@@ -10,5 +10,6 @@
 char *readLine(char *);
 char **commandInput(char *);
 int changeDir(char *);
+void commandExecution(char **, char *, pid_t);
 
 #endif
