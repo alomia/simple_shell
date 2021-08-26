@@ -18,6 +18,7 @@ len++;
 }
 
 write(STDOUT_FILENO, prompt, len);
+
 getline(&command, &size, stdin);
 
 while (command[lenCommand] != '\0')

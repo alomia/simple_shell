@@ -7,6 +7,5 @@
  */
 int changeDir(char *path)
 {
-        return (chdir(path));
+return (chdir(path));
 }
-
