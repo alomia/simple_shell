@@ -62,10 +62,10 @@ The simple_shell is designed to execute commands in a similar manner to sh, howe
 ### Builtins
 
 - [x] exit
-- [x] env
-- [x] setenv
-- [x] unsetenv
-- [ ] cd
+- [ ] env
+- [ ] setenv
+- [ ] unsetenv
+- [x] cd
 - [ ] help
 - [ ] history
 
