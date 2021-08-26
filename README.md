@@ -18,7 +18,18 @@ Standard functions and system calls employed in simple_shell include:
    `execve, exit, fork, free, getline, malloc, perror, signal, wait, write.`
 
 ## File Structure
-
+* [AUTHORS](AUTHORS) - List of contributors to this repository
+* [man_1_simple_shell](man_1_simple_shell) - Manual page for the simple_shell
+* [libhsh.h](libhsh.h) - program header file
+* [main.c](main.c) - It is the main function of the program and where the commands are executed 
+  * `cd` - change directory according to the specified path 
+  * `exit` - exits the shell with the option of a specified status
+* [changeDir.c](changeDir.c) - This function is used to switch between directories
+  * `path:` -  saves the command name
+* [readLine.c](readLine.c) - reads a string and returns its value minus one position
+  * `prompt:` - this variable stores a character string
+* [commandInput.c](commandInput.c) - tokenizing function
+  * `commandInput` - creates an array of tokens from a buffer with a specified delimiter
 ## Requirements
 
 simple_shell is designed to run in the `Ubuntu 20.04.2 LTS` linux environment and to be compiled using the GNU compiler collection v. `gcc 11.2` with flags`-Wall, -Werror, -Wextra, and -pedantic.`
@@ -64,17 +75,18 @@ Run the executable in your terminal after compiling:
 $ ./hsh
 $ # This is our rendition of the shell
 $ ls -al
-total 4
-drwxr-xr-x 1 sebastian sebastian 512 Aug 24 21:01  .
-drwxr-xr-x 1 sebastian sebastian 512 Aug 23 18:44  ..
-drwxr-xr-x 1 sebastian sebastian 512 Aug 24 21:01  .git
--rw-r--r-- 1 sebastian sebastian   0 Aug 23 15:47  AUTHORS
--rw-r--r-- 1 sebastian sebastian 115 Aug 20 09:52  README.md
--rw-r--r-- 1 sebastian sebastian 447 Aug 23 18:46  command_input.c
--rw-r--r-- 1 sebastian sebastian 225 Aug 23 16:19  libhsh.h
--rw-r--r-- 1 sebastian sebastian 415 Aug 24 21:01  main.c
--rw-r--r-- 1 sebastian sebastian 942 Aug 23 18:46  man_1_simple_shell
--rw-r--r-- 1 sebastian sebastian 501 Aug 23 18:46  readline.c
+total 20
+drwxr-xr-x 1 sebastian sebastian  512 Aug 25 19:58 .
+drwxr-xr-x 1 sebastian sebastian  512 Aug 23 18:44 ..
+drwxr-xr-x 1 sebastian sebastian  512 Aug 25 19:58 .git
+-rw-r--r-- 1 sebastian sebastian  171 Aug 25 19:58 AUTHORS
+-rw-r--r-- 1 sebastian sebastian 3307 Aug 24 21:27 README.md
+-rw-r--r-- 1 sebastian sebastian  208 Aug 25 19:58 changeDir.c
+-rw-r--r-- 1 sebastian sebastian  566 Aug 25 19:58 commandInput.c
+-rw-r--r-- 1 sebastian sebastian  246 Aug 25 19:58 libhsh.h
+-rw-r--r-- 1 sebastian sebastian 2139 Aug 25 19:58 main.c
+-rw-r--r-- 1 sebastian sebastian  942 Aug 23 18:46 man_1_simple_shell
+-rw-r--r-- 1 sebastian sebastian  645 Aug 25 19:58 readLine.c
 ```
 ## Bugs
 At this time, there are no known bugs.
